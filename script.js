@@ -5,7 +5,7 @@ const GOOGLE_SHEET_ID = "1uJr0ch0_kONu8HPw9mfU5hUSZ19qjNWmjZzpLtlpUAY";
 const GOOGLE_SHEET_GID = "0";
 const GOOGLE_SHEETS_WEB_APP_URL = "";
 
-const GAME_SECONDS = 90;
+const GAME_SECONDS = 60;
 const SHEET_READ_URL = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/gviz/tq?gid=${GOOGLE_SHEET_GID}&headers=1&tqx=out:json;responseHandler:`;
 
 const DEFAULT_SCORES = [
@@ -45,18 +45,6 @@ const CLUES = [
     clue: "Which season is known for hot weather?",
     answer: "SUMMER",
     aliases: []
-  },
-  {
-    id: 6,
-    clue: "Which company makes the iPhone?",
-    answer: "APPLE",
-    aliases: ["APPLE INC", "APPLE INC."]
-  },
-  {
-    id: 7,
-    clue: "How many days are in a week?",
-    answer: "SEVEN",
-    aliases: ["7"]
   }
 ];
 
@@ -233,7 +221,7 @@ const GRID_LETTERS = buildGridLetters();
 
 function readLeaderboard() {
   const seeded = DEFAULT_SCORES.map((entry, index) => ({
-    solvedCount: 7,
+    solvedCount: CLUES.length,
     durationSeconds: entry.scoreSeconds,
     revealedBy: "completed",
     puzzleVersion: PUZZLE_VERSION,
@@ -327,7 +315,7 @@ function sheetRowToAttempt(row) {
   const completed = parseBoolean(row.completed);
   const durationSeconds = parseNumber(row.duration_seconds, completed ? row.score_seconds : GAME_SECONDS);
   const scoreSeconds = parseNumber(row.score_seconds, completed ? durationSeconds : GAME_SECONDS);
-  const solvedCount = parseNumber(row.solved_count, completed ? 7 : 0);
+  const solvedCount = parseNumber(row.solved_count, completed ? CLUES.length : 0);
 
   return {
     name,
@@ -418,7 +406,7 @@ function formatScore(entry) {
   if (entry.completed) {
     return `${Number(entry.scoreSeconds).toFixed(1)}s`;
   }
-  return `${entry.solvedCount || 0}/7`;
+  return `${entry.solvedCount || 0}/${CLUES.length}`;
 }
 
 function renderLeaderboard(target, limit = 6, includeCurrentAttempt = false) {

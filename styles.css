@@ -373,8 +373,8 @@ h2 {
 .word-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 3px;
-  width: min(100%, 470px);
+  gap: 2px;
+  width: min(100%, 420px);
   margin: 0 auto 14px;
   touch-action: none;
   user-select: none;
@@ -387,7 +387,7 @@ h2 {
   min-width: 0;
   color: #253126;
   font-weight: 950;
-  font-size: clamp(0.8rem, 5vw, 1.18rem);
+  font-size: clamp(0.92rem, 5.2vw, 1.32rem);
   line-height: 1;
   background: var(--surface-strong);
   border: 1px solid #dfd4bd;
