@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>90 Second Word Hunt</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="landing-screen" class="screen is-active" aria-labelledby="landing-title">
+        <div class="brand-strip">
+          <span class="brand-dot"></span>
+          <span>Daily Mini Puzzle</span>
+        </div>
+
+        <div class="hero-card">
+          <h1 id="landing-title">90 Second Word Hunt</h1>
+          <p class="subtitle">7 clues. 90 seconds. Beat the leaderboard.</p>
+
+          <div class="score-pill" id="best-score">Best score: 53.4s</div>
+
+          <div class="leaderboard-card" aria-label="Leaderboard preview">
+            <div class="card-title-row">
+              <h2>Leaderboard</h2>
+              <span>Top times</span>
+            </div>
+            <ol id="landing-leaderboard" class="leaderboard-list"></ol>
+          </div>
+
+          <form id="start-form" class="start-form">
+            <label for="player-name">Enter your name</label>
+            <div class="input-row">
+              <input id="player-name" name="player-name" type="text" autocomplete="name" maxlength="18" required>
+              <button type="submit">Start Challenge</button>
+            </div>
+          </form>
+
+          <p class="small-note">Find the answers hidden in the grid.</p>
+        </div>
+      </section>
+
+      <section id="game-screen" class="screen" aria-labelledby="game-title">
+        <div class="game-topbar">
+          <div>
+            <p class="eyebrow">Playing as</p>
+            <h1 id="game-title">Player</h1>
+          </div>
+          <div class="timer-box" aria-live="polite">
+            <span id="timer">90.0</span>
+            <small>seconds</small>
+          </div>
+        </div>
+
+        <div class="progress-card">
+          <div>
+            <span id="progress-text">0 / 7 found</span>
+            <div class="progress-track" aria-hidden="true">
+              <span id="progress-fill"></span>
+            </div>
+          </div>
+          <button id="clear-selection" type="button" class="secondary-button">Clear Selection</button>
+        </div>
+
+        <div id="selection-status" class="selection-status" aria-live="polite">Tap or drag across letters.</div>
+
+        <div id="word-grid" class="word-grid" aria-label="Word-search grid"></div>
+
+        <div class="clues-card">
+          <div class="card-title-row">
+            <h2>Clues</h2>
+            <span>Answers are in the grid</span>
+          </div>
+          <ol id="clue-list" class="clue-list"></ol>
+        </div>
+      </section>
+
+      <section id="result-screen" class="screen result-screen" aria-live="polite"></section>
+    </main>
+
+    <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
