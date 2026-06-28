@@ -903,6 +903,118 @@ h2 {
   }
 }
 
+
+
+@media (max-width: 699px) {
+  #game-screen.is-active {
+    padding-top: 0;
+  }
+
+  .game-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    margin: -10px -8px 10px;
+    padding: 10px 8px 8px;
+    background: rgba(251, 247, 236, 0.96);
+    border-bottom: 1px solid rgba(232, 223, 202, 0.82);
+    backdrop-filter: blur(10px);
+  }
+
+  .timer-box {
+    min-width: 76px;
+    padding: 7px 9px;
+  }
+
+  .timer-box span {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .app-shell {
+    padding: 10px 8px 18px;
+  }
+
+  .result-card {
+    padding-top: 8px;
+  }
+
+  .reveal-card {
+    width: min(calc(100vw - 16px), 760px);
+    margin-bottom: 10px;
+    padding: 18px 14px 16px;
+    border-radius: 22px;
+  }
+
+  .reveal-card::before {
+    inset: 7px;
+    border-radius: 17px;
+  }
+
+  .reveal-eyebrow {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    line-height: 1.32;
+  }
+
+  .reveal-headline {
+    font-size: clamp(2.25rem, 11vw, 3.25rem);
+    line-height: 0.98;
+  }
+
+  .reveal-divider {
+    width: min(190px, 55vw);
+    margin: 14px auto 12px;
+  }
+
+  .reveal-subline {
+    font-size: clamp(1.12rem, 5vw, 1.55rem);
+  }
+
+  .shape-star {
+    top: 14px;
+    left: 18px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .shape-dot {
+    top: 22px;
+    right: 22px;
+    transform: scale(0.78);
+  }
+
+  .shape-moon {
+    right: 30px;
+    bottom: 18px;
+    transform: scale(0.8) rotate(-18deg);
+  }
+
+  .reveal-score {
+    margin: 6px auto 8px;
+    font-size: 0.95rem;
+  }
+
+  .result-grid-wrap {
+    margin-top: 6px;
+  }
+
+  .announcement-mode .result-grid-wrap {
+    opacity: 0.84;
+    transform: scale(0.82);
+    margin-bottom: -66px;
+  }
+
+  .result-leaderboard {
+    margin-top: 8px;
+  }
+
+  .confetti.is-floating {
+    opacity: 0.34;
+  }
+}
+
 @media (min-width: 700px) {
   .app-shell {
     padding-top: 30px;

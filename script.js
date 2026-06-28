@@ -105,11 +105,11 @@ const ANSWER_PATHS = {
     [6, 0]
   ],
   APPLE: [
-    [0, 11],
-    [1, 10],
-    [2, 9],
-    [3, 8],
-    [4, 7]
+    [0, 7],
+    [0, 8],
+    [0, 9],
+    [0, 10],
+    [0, 11]
   ],
   SEVEN: [
     [10, 6],
@@ -599,6 +599,9 @@ function startGame(name) {
   renderGrid();
   updateProgress();
   showScreen(elements.game);
+  elements.playerNameInput.blur();
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  elements.game.scrollIntoView({ block: "start", inline: "nearest" });
   startTimer();
   saveAttempt(createAttempt("started"));
 }
@@ -891,11 +894,11 @@ function animateReveal() {
 function launchConfetti() {
   clearConfetti();
   const colors = ["#b45309", "#f59e0b", "#f4ca64", "#5f6f34", "#ffffff", "#ef4444"];
-  for (let index = 0; index < 42; index += 1) {
+  for (let index = 0; index < 28; index += 1) {
     const piece = document.createElement("span");
     piece.className = "confetti is-floating";
     piece.style.left = `${Math.random() * 100}%`;
-    piece.style.top = `${8 + Math.random() * 76}%`;
+    piece.style.top = `${18 + Math.random() * 68}%`;
     piece.style.background = colors[index % colors.length];
     piece.style.animationDelay = `${Math.random() * 2200}ms`;
     piece.style.setProperty("--float-x", `${Math.random() * 42 - 21}px`);
