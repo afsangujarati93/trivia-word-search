@@ -854,6 +854,9 @@ function renderResult(reason, attempt) {
   const resultCopy = completed
     ? `You finished in ${attempt.durationSeconds.toFixed(1)}s.`
     : foundCopy;
+  const eyebrowCopy = completed
+    ? "Good job solving the puzzle. Now get ready to change diapers."
+    : "You may not be good at solving puzzles, but we hope you're great at changing diapers.";
 
   elements.result.innerHTML = `
     <div class="result-card announcement-mode">
@@ -861,7 +864,7 @@ function renderResult(reason, attempt) {
         <span class="reveal-shape shape-star" aria-hidden="true"></span>
         <span class="reveal-shape shape-dot" aria-hidden="true"></span>
         <span class="reveal-shape shape-moon" aria-hidden="true"></span>
-        <p class="reveal-eyebrow">Good job solving the puzzle. Now get ready to change diapers.</p>
+        <p class="reveal-eyebrow">${eyebrowCopy}</p>
         <h2 class="reveal-headline">Tiny Feet, Big News</h2>
         <div class="reveal-divider" aria-hidden="true"><span></span></div>
         <p class="reveal-subline">Tazbin &amp; Afsan — Dec 2026</p>
