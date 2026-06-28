@@ -847,23 +847,23 @@ function revealTimeoutAttempt(attempt) {
 
 function renderResult(reason, attempt) {
   const completed = reason === "completed";
-  const headline = "The secret is out";
   const foundCopy = completed ? "" : `You found ${attempt.solvedCount} out of ${CLUES.length} words.`;
   const resultCopy = completed
     ? `You finished in ${attempt.durationSeconds.toFixed(1)}s.`
-    : "";
-  const journeyMessage = "Thank you for being part of this journey. We hope you will be there to change diapers.";
+    : foundCopy;
 
   elements.result.innerHTML = `
-    <div class="result-card">
-      <p class="result-kicker">${headline}</p>
-      ${foundCopy ? `<p class="result-meta">${foundCopy}</p>` : ""}
-      <div class="announcement-copy">
-        <p class="announcement-title">We're expecting a baby</p>
-        <p class="announcement-date">Tazbin &amp; Afsan - Dec 2026</p>
-        <p class="journey-message">${journeyMessage}</p>
-      </div>
-      ${resultCopy ? `<p class="result-meta">${resultCopy}</p>` : ""}
+    <div class="result-card announcement-mode">
+      <section class="reveal-card" aria-label="Baby announcement">
+        <span class="reveal-shape shape-star" aria-hidden="true"></span>
+        <span class="reveal-shape shape-dot" aria-hidden="true"></span>
+        <span class="reveal-shape shape-moon" aria-hidden="true"></span>
+        <p class="reveal-eyebrow">Good job solving the puzzle. Now get ready to change diapers.</p>
+        <h2 class="reveal-headline">Tiny Feet, Big News</h2>
+        <div class="reveal-divider" aria-hidden="true"><span></span></div>
+        <p class="reveal-subline">Tazbin &amp; Afsan — Dec 2026</p>
+      </section>
+      ${resultCopy ? `<p class="result-meta reveal-score">${resultCopy}</p>` : ""}
       <div class="result-grid-wrap">
         <div id="result-grid" class="word-grid" aria-label="Completed word-search grid"></div>
       </div>
